@@ -24,7 +24,7 @@ for i in range(1,9):
         else:
             print("○",end=" ")
     print()
-#卡点是要注意棋盘格是行列共同控制的每个格子
+#卡点是要注意棋盘格是行列共同控制的每个格子，行列一起决定
 #订正：
 for i in range(1,9):
     for j in range(1,9):
