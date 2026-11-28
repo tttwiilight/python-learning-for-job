@@ -1,4 +1,4 @@
- # 开发一个购物车管理系统，实现商品信息的添加、修改、删除、查询功能。
+# 开发一个购物车管理系统，实现商品信息的添加、修改、删除、查询功能。
  # 系统使用字典结构存储商品数据，通过控制台菜单与用户交互。具体功能如下：
  
  # 添加购物车：用户根据提示录入商品名称、以及该商品的价格、数量，
@@ -22,13 +22,17 @@ menu="""
 #          5.退出购物车           #
 #################################
 """
-print(menu)
 
+print("欢迎使用购物车管理系统(^ ^)")
 
 while True:
+    
+    print(menu)
+    
+    
     act=input("请输入您要操作的序号（1-5）：")
     match act:
-        case"1":               #3. 添加购物车
+        case "1":               #3. 添加购物车
             name=input("请输入添加商品的名称：")
             if name in shopping_cart:
                 print("该商品已在购物车中！")
@@ -36,8 +40,8 @@ while True:
             price=float(input("请输入添加商品的价格："))
             number=int(input("请输入添加商品的数量："))
             shopping_cart[name]={"price":price,"number":number}
-            print("添加成功，购物车内容为：",shopping_cart)
-        case"2":                #4. 修改购物车    
+            print("添加成功！")
+        case "2":                #4. 修改购物车    
             name=input("请输入需要修改的商品的名称：")
             if name not in shopping_cart:
                 print("该商品不在购物车中！")
@@ -45,23 +49,21 @@ while True:
             price=float(input("请输入需要修改的商品的价格："))
             number=int(input("请输入需要修改的商品的数量："))
             shopping_cart[name]={"price":price,"number":number}
-            print("修改成功，购物车内容为：",shopping_cart)
-        case"3":                #5. 删除购物车   
+            print("修改成功！")
+        case "3":                #5. 删除购物车   
             name=input("请输入需要删除的商品的名称：")
             if name not in shopping_cart:
                 print("该商品不在购物车中！")
                 continue
             else:
                 del shopping_cart[name]
-        case"4":                #6. 查询购物车  
-            name=input("请输入需要查询的商品的名称：")
-            if name not in shopping_cart:
-                print("该商品不在购物车中！")
-                continue
-            else:
-                print(f"商品名称：{name}，商品价格：{price}，商品数量：{number}")
-        case"5":                #7. 退出购物车
-            print("退出成功！")
+                print("删除成功！")
+        case "4":                #6. 查询购物车  
+            for name in shopping_cart.keys():
+                info=shopping_cart[name]
+                print(f"商品名称是：{name},商品价格是：{info["price"]},商品数量是：{info["number"]}")
+        case "5":                #7. 退出购物车
+            print("退出成功,白白！")
             break
         case _:                #7. 退出购物车
             print("输入错误，请重新输入操作！")
